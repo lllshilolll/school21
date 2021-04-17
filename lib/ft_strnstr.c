@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/17 20:08:57 by gbethani          #+#    #+#             */
+/*   Updated: 2021/04/17 20:09:28 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnstr (const char *big, const char *little, size_t len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (little[0] == '\0')
 		return ((char *)big);

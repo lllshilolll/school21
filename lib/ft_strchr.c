@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/17 19:38:18 by gbethani          #+#    #+#             */
+/*   Updated: 2021/04/17 19:43:28 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -6,19 +18,7 @@ char	*ft_strchr(const char *s, int c)
 	{
 		s++;
 	}
-	if (*s  == (char)c)
+	if (*s == (char)c)
 		return ((char *)s);
-	return ((char *)NULL);
-}
-
-int main()
-{
-    unsigned char s1[] = "123456785656";
-    unsigned char s2[] = "Hello";
-    unsigned char s3[] = "123456785656";
-    unsigned char s4[] = "Hello";
-    printf("%p \n", ft_strchr(s1, '8'));
-    printf("%p \n", strchr(s1, '8'));
-
-    return 0;
+	return ((char *) NULL);
 }
