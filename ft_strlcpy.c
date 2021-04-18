@@ -1,33 +1,33 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/17 19:36:42 by gbethani          #+#    #+#             */
+/*   Updated: 2021/04/18 17:05:24 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-    size_t i;
-    
-    i = 0;
-    if (!dest || !src)
-        return (0);
-    while (i < size)
-    {
-        *(dest + i) = *(src + i);
-        i++;
-    }
-    *(dest + i) = '\0';
-    while (*(src + i))
-    {
-        i++;
-    }
-    return (i);
-}
+	size_t	i;
 
-
-int main()
-{
-    
-    char s1[15]= "123456";
-    char s2[15] = "";
-    printf("ft %lu \n", ft_strlcpy(s2, s1, 4));
-    printf("m %lu \n", strlcpy(s2, s1, 4));
-    return 0;
+	i = 0;
+	if (!dest || !src)
+		return (0);
+	while (i < size)
+	{
+		*(dest + i) = *(src + i);
+		i++;
+	}
+	*(dest + i) = '\0';
+	while (src[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

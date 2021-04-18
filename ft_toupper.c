@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 19:38:18 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/17 19:43:28 by gbethani         ###   ########.fr       */
+/*   Created: 2021/04/18 16:34:08 by gbethani          #+#    #+#             */
+/*   Updated: 2021/04/18 17:16:32 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_toupper(int c)
 {
-	while (*s != '\0' && *s != c)
-	{
-		s++;
-	}
-	if (*s == (char)c)
-		return ((char *)s);
-	return ((char *) NULL);
+	if (c >= 'a' && c <='z')
+		return (c - 32);
+	return (c);
 }
