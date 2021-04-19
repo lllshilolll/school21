@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 14:22:51 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/19 14:22:53 by gbethani         ###   ########.fr       */
+/*   Created: 2021/04/19 16:06:37 by gbethani          #+#    #+#             */
+/*   Updated: 2021/04/19 17:02:03 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*arr;
 	size_t	i;
 
-	if (!dest)
+	if (len == 0)
+	{
+		arr = (char *) malloc(1 * sizeof(char));
+		arr[0] = '\0';
+		return (arr);
+	}
+	arr = (char *) malloc((1 + len) * sizeof(char));
+	if (!arr)
 		return (NULL);
 	i = 0;
-	while (i < n)
+	while (i < len && s[start] != '\0' && start < ft_strlen(s))
 	{
-		*(char *)(dest + i) = *(char *)(src + i);
+		arr[i] = s[start];
 		i++;
+		start++;
 	}
-	return (dest);
+	arr[i] = '\0';
+	return (arr);
 }
