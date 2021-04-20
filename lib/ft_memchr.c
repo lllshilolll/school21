@@ -6,7 +6,7 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:23:29 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/19 14:26:12 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:58:45 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	while (i < n)
 	{

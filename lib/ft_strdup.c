@@ -6,7 +6,7 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 17:42:32 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/19 16:04:14 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:09:13 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	char	*arr;
 
 	i = 0;
-	if (!s)
-		return (NULL);
 	arr = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!arr)
 		return (NULL);

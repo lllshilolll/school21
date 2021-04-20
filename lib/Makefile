@@ -6,7 +6,7 @@
 #    By: gbethani <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 20:21:52 by gbethani          #+#    #+#              #
-#    Updated: 2021/04/19 17:30:06 by gbethani         ###   ########.fr        #
+#    Updated: 2021/04/20 18:18:09 by gbethani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ ft_atoi.c	ft_isdigit.c	ft_memcpy.c	ft_strlcpy.c	ft_tolower.c \
 ft_bzero.c	ft_isprint.c	ft_memmove.c	ft_strlen.c	ft_toupper.c \
 ft_isalnum.c	ft_memccpy.c	ft_memset.c	ft_strncmp.c \
 ft_isalpha.c	ft_memchr.c	ft_strchr.c	ft_strnstr.c ft_strdup.c ft_calloc.c \
-ft_substr.c ft_strjoin.c
+ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c
 OBJS = ${SRCS:.c=.o}
 HEADER = libft.h
 

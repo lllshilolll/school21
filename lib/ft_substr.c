@@ -6,7 +6,7 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:06:37 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/19 17:02:03 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:10:47 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*arr;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	if (len == 0)
 	{
 		arr = (char *) malloc(1 * sizeof(char));

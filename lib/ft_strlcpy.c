@@ -6,7 +6,7 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 19:36:42 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/19 14:24:43 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:00:35 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	i = 0;
 	count = 0;
+	if (!dest || !src)
+		return (0);
 	if (size == 0)
 		return (ft_strlen(src));
 	while (src[count] != '\0')
