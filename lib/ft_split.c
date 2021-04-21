@@ -6,70 +6,91 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 18:16:38 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/20 20:37:59 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/04/21 18:46:03 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int nb_str (char const *s, char c)
+int	char_is_sep(char ch, char sep)
 {
-	int count;
-	int i;
+	if (ch == sep || ch == '\0')
+		return (1);
+	return (0);
+}
+
+int	n_str(char *s, char c)
+{
+	int	count;
+	int	i;
 
 	i = 0;
 	count = 0;
-//while
-	while (s[i] != '\0')
+	while (s[i] && char_is_sep(s[i], c) == 1)
+		i++;
+	while (s[i])
 	{
-		if (s[i] == c)
+		if (char_is_sep(s[i + 1], c) == 1 && char_is_sep(s[i], c) == 0)
 			count++;
 		i++;
 	}
-	if (s[i - 1] != c)
-		count++;
 	return (count);
 }
-int	str_len(char const *s, int *str_len, char c)
-{
-	int len;
 
-	len = 0;
-	while (s[*str_len] == c && s[*str_len] != '\0')
-		(*str_len)++;
-	while (s[*str_len] != c && s[*str_len] != '\0')
-	{
-		len++;
-		(*str_len)++;
-	}
-	return (len);
-}
-
-char **ft_split(char const *s, char c)
+char	*add_word(char *to, char *from, char c)
 {
-	char **tab;
-	int nb_str;
-	int str_len;
-	int len;
-	int i;
+	int	i;
 
 	i = 0;
-	str_len = 0;
-	if (!s)
-		return (NULL);
-	nb_str = nb_str(s, c);
-	tab = (char **)malloc(sizeof(char *) * nb_str);
-	if (!tab)
-		return (NULL);
-	while (nb_str != 0 && s)
+	while (char_is_sep(from[i], c) == 0 && from[i])
 	{
-		len = str_len(s, &str_len, c);
-		tab[i] = (char *)malloc(sizeof(char) * len);
-		while (len--)
-			tab[i][len - 1] = s[strlen + len - 1];
-				
-		nb_str--;
-		
-
+		to[i] = from[i];
+		i++;
+	}
+	to[i] = '\0';
+	return (to);
 }
 
+char	**malloc_words(char **arr, char *s, char c)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i] != '\0')
+	{
+		if (char_is_sep(s[i], c) == 1)
+			i++;
+		else
+		{
+			j = 0;
+			while (char_is_sep(s[i + j], c) == 0 && s[i + j])
+				j++;
+			arr[count] = (char *)malloc(sizeof(char) * (j + 1));
+			if (!arr[count])
+				return (NULL);
+			arr[count] = add_word(arr[count], s + i, c);
+			i = i + j;
+			count++;
+		}
+	}
+	return (arr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		nb_str;
+
+	if (!s)
+		return (NULL);
+	nb_str = n_str((char *)s, c);
+	arr = (char **)malloc(sizeof(char *) * (nb_str + 1));
+	if (!arr)
+		return (NULL);
+	arr[nb_str] = NULL;
+	arr = malloc_words(arr, (char *)s, c);
+	return (arr);
+}
