@@ -30,7 +30,7 @@ int	n_str(char *s, char c)
 		i++;
 	while (s[i])
 	{
-		if (char_is_sep(s[i + 1], c) == 1 && char_is_sep(s[i], c) == 0)
+		if (char _is_sep(s[i + 1], c) == 1 && char_is_sep(s[i], c) == 0)
 			count++;
 		i++;
 	}
