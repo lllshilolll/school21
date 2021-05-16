@@ -16,7 +16,7 @@ char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *str);
 void	*ft_memset(void *b, int c, size_t len);
 char *ft_strmalloc(int size);
-int		ft_strclean(char *str);
+int		ft_strclean(void **str);
 int		get_next_line(int fd, char **line);
 
 #endif

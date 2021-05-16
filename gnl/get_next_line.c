@@ -1,14 +1,22 @@
 #include "get_next_line.h"
+#include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)//если символ найден вывести остаток строки включая этот символ
+char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != c)
+	int i;
+
+	i = 0;
+	while (s[i] != (char)c)
 	{
-		s++;
+		if (!s[i])
+		{
+			//printf("ft_strchr -> save[%d] = NULL\n", i);
+			return (NULL);
+		}
+		i++;
 	}
-	if (*s == (char)c)
-		return ((char *)s);
-	return ((char *) NULL);
+	//printf("ft_strchr -> save[%d] = %s\n", i, &s[i]);
+	return ((char *)&s[i]);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -39,13 +47,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (arr);
 }
 
-int			ft_strclean(char *str)
+int			ft_strclean(void **str)
 {
 	if (*str)
 	{
-		ft_memset(str, 0, ft_strlen(str));
-		free(str);
-		str = NULL;
+		free(*str);
+		*str = NULL;
 		return (1);
 	}
 	return (0);
@@ -69,36 +76,67 @@ char	*ft_strdup(const char *s)
 	return (arr);
 }
 
-int get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	char *buff;
-	char *save;
-	char *tmp;
-	int reader;
+	ssize_t		r;
+	char		*buff;
+	static char	*save;
+	char		*tmp;
+	int			count;
 	
-	reader = 1;
+	count = 0;	
+	r = 1;	
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
+	{
+		ft_strclean((void**)&save);
 		return (-1);
-	save = NULL ? (save = ft_strmalloc(0)) : NULL;
+	}
+	//printf("chek1\n");
+	if (save == NULL)
+		save = ft_strmalloc(0);
+	//printf ("%s - save\n", save); 
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
-		return (-1);
-	while (!ft_strchr(save, '\n') && (reader = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
-		buff[reader] = '\0';
-		tmp = ft_strjoin(save, buff);//склеиваем 
-		ft_strclean(save);//чистим строку
-		save = tmp;//записываем склеиную строку
-	}
-	if (reader == 0)
-		*line = ft_strdup(save);//переписываем строку в line
-	else if (reader > 0)
-		//взять подстроку save = line это строка до \n
-		*line = ft_substr(save, 0, (ft_strlen(ft_strchr(save, '\n')) - ft_strlen(save)));//остаток строки - строка = строка до первого \n
-	else
+		//ft_strclean((void**)&buff);
+		//ft_strclean((void**)&save);
 		return (-1);
-	tmp = ft_strdup(save + (ft_strlen(*line) + ((reader > 0) ? +1 : +0)));
-	save = tmp;
-	return (reader == 0 ? 0 * ft_strclean(save) : 1);
-}
+	}
+	while (!ft_strchr(save, '\n') && (r = read(fd, buff, BUFFER_SIZE)) > 0)
+	{
+		//printf("\\\\\n");
+		buff[r] = '\0';
+		//printf("buff[%zd] = %c\n", r, buff[r]); 
+		tmp = ft_strjoin(save, buff);
+		//printf("tmp = %s\n", tmp);
+		ft_strclean((void **)&save);
+		save = tmp;
+		//printf("\n");
+		
+	}
+//	printf("after\n");(
+	if (r == 0)
+		*line = ft_strdup(save);
+	else if (r > 0)
+	{
+		count = 1;
+		//printf("line start - %s\n", *line);
+		*line = ft_substr(save, 0, (ft_strchr(save, '\n') - save));
+		//printf("line finish - %s\n", *line);
+	}
+	else
+	{
+		//ft_strclean((void **)&tmp);
+		ft_strclean((void **)&buff);
+		//ft_strclean((void **)&save);
+		return (-1);
+	}
+	tmp = ft_strdup(save + ft_strlen(*line) + count);
+	//printf("tmp = %s\n", tmp);
+	ft_strclean((void **)&save);
+	save = ft_strdup(tmp);
+	ft_strclean((void **)&tmp);
+	ft_strclean((void **)&buff);
 
+	return (r == 0 ? 0 * ft_strclean((void **)&save) : 1);
+}
