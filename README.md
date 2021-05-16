@@ -1,3 +1,2 @@
 # school21
-Создание библиотеки string.h\n
-gnl
+Создание библиотеки string.h, gnl
