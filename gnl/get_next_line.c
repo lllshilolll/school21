@@ -1,23 +1,4 @@
 #include "get_next_line.h"
-#include <stdio.h>
-
-char	*ft_strchr(const char *s, int c)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != (char)c)
-	{
-		if (!s[i])
-		{
-			//printf("ft_strchr -> save[%d] = NULL\n", i);
-			return (NULL);
-		}
-		i++;
-	}
-	//printf("ft_strchr -> save[%d] = %s\n", i, &s[i]);
-	return ((char *)&s[i]);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -26,7 +7,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 
 	i = 0;
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
 	arr = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!arr)
@@ -44,35 +25,58 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	arr[i] = '\0';
+	free((char *)s1);
 	return (arr);
 }
 
-int			ft_strclean(void **str)
-{
-	if (*str)
-	{
-		free(*str);
-		*str = NULL;
-		return (1);
-	}
-	return (0);
-}
-
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *save)
 {
 	int		i;
 	char	*arr;
 
 	i = 0;
-	arr = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!save)
+		return (NULL);
+	while (save[i] && save[i] != '\n')
+		i++;
+	arr = (char *)malloc(sizeof(char) * (i + 1));
 	if (!arr)
 		return (NULL);
-	while (s[i] != '\0')
+	i = 0;
+	while (save[i] && save[i] != '\n')
 	{
-		arr[i] = s[i];
+		arr[i] = save[i];
 		i++;
 	}
 	arr[i] = '\0';
+	return (arr);
+}
+
+char	*saves(char *save)
+{
+	char	*arr;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!save)
+		return (NULL);
+	while (save[i] && save[i] != '\n')
+		i++;
+	if (!save[i])
+	{
+		free(save);
+		return (NULL);
+	}
+	arr = (char *) malloc(sizeof(char) * ((ft_strlen(save) - i) + 1));
+	if (!arr)
+		return (NULL);
+	i++;
+	while (save[i])
+		arr[j++] = save[i++];
+	arr[j] = '\0';
+	free(save);
 	return (arr);
 }
 
@@ -81,62 +85,26 @@ int	get_next_line(int fd, char **line)
 	ssize_t		r;
 	char		*buff;
 	static char	*save;
-	char		*tmp;
-	int			count;
-	
-	count = 0;	
-	r = 1;	
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-	{
-		ft_strclean((void**)&save);
-		return (-1);
-	}
-	//printf("chek1\n");
-	if (save == NULL)
-		save = ft_strmalloc(0);
-	//printf ("%s - save\n", save); 
+
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
-	{
-		//ft_strclean((void**)&buff);
-		//ft_strclean((void**)&save);
 		return (-1);
-	}
-	while (!ft_strchr(save, '\n') && (r = read(fd, buff, BUFFER_SIZE)) > 0)
+	r = 1;
+	while (!find_n(save) && r != 0)
 	{
-		//printf("\\\\\n");
+		r = read(fd, buff, BUFFER_SIZE);
+		if (r == -1)
+		{
+			free(buff);
+			return (-1);
+		}
 		buff[r] = '\0';
-		//printf("buff[%zd] = %c\n", r, buff[r]); 
-		tmp = ft_strjoin(save, buff);
-		//printf("tmp = %s\n", tmp);
-		ft_strclean((void **)&save);
-		save = tmp;
-		//printf("\n");
-		
+		save = ft_strjoin(save, buff);
 	}
-//	printf("after\n");(
+	free(buff);
+	*line = ft_strdup(save);
+	save = saves(save);
 	if (r == 0)
-		*line = ft_strdup(save);
-	else if (r > 0)
-	{
-		count = 1;
-		//printf("line start - %s\n", *line);
-		*line = ft_substr(save, 0, (ft_strchr(save, '\n') - save));
-		//printf("line finish - %s\n", *line);
-	}
-	else
-	{
-		//ft_strclean((void **)&tmp);
-		ft_strclean((void **)&buff);
-		//ft_strclean((void **)&save);
-		return (-1);
-	}
-	tmp = ft_strdup(save + ft_strlen(*line) + count);
-	//printf("tmp = %s\n", tmp);
-	ft_strclean((void **)&save);
-	save = ft_strdup(tmp);
-	ft_strclean((void **)&tmp);
-	ft_strclean((void **)&buff);
-
-	return (r == 0 ? 0 * ft_strclean((void **)&save) : 1);
+		return (0);
+	return (1);
 }
