@@ -5,25 +5,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*arr;
 	size_t	i;
 	size_t	j;
+	size_t	s1_len;
+	size_t	s2_len;
 
 	i = 0;
 	if (!s1 && !s2)
 		return (NULL);
-	arr = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	arr = (char *) malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!arr)
 		return (NULL);
-	while (i < ft_strlen(s1))
+	while (i < s1_len)
 	{
 		arr[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (i < ft_strlen(s1) + ft_strlen(s2))
-	{
-		arr[i] = s2[j];
-		j++;
-		i++;
-	}
+	while (i < s1_len + s2_len)
+		arr[i++] = s2[j++];
 	arr[i] = '\0';
 	free((char *)s1);
 	return (arr);
@@ -86,8 +86,8 @@ int	get_next_line(int fd, char **line)
 	char		*buff;
 	static char	*save;
 
-	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buff)
+	buff = check(fd, line);
+	if (buff == NULL)
 		return (-1);
 	r = 1;
 	while (!find_n(save) && r != 0)

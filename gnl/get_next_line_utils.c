@@ -29,3 +29,15 @@ int	find_n(char *str)
 	}
 	return (0);
 }
+
+char	*check(int fd, char **line)
+{
+	char	*buff;
+
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
+		return (NULL);
+	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buff)
+		return (NULL);
+	return (buff);
+}
