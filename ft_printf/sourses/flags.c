@@ -22,16 +22,15 @@ int	what_type(int c, t_flags flags, va_list aps)
 	else if (c == 's')
 		count = work_with_str(va_arg(aps, char *), flags);
 	else if (c == 'p')
-		count = work_with_point(va_arg(aps, unsigned long), flags);
+		count = work_with_point(va_arg(aps, unsigned long long), flags);
 	else if (c == 'd' || c == 'i')
 		count = work_with_int(va_arg(aps, int), flags);
 	else if (c == 'u')
-		count += work_u(va_arg(aps, unsigned int),
-		flags);
+		count += work_u(va_arg(aps, unsigned int),flags);
 	else if (c == 'x')
-		count += work_x(va_arg(aps, unsigned), 1, flags);
+		count += work_x(va_arg(aps, unsigned int), 1, flags);
 	else if (c == 'X')
-		count += work_x(va_arg(aps, unsigned), 0, flags);
+		count += work_x(va_arg(aps, unsigned int), 0, flags);
 	else if (c == '%')
 		count += work_with_percent(flags);
 	return (count);

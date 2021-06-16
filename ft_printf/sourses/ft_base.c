@@ -9,27 +9,31 @@ char	*ft_str_tolower(char *str)
 	return (str);
 }
 
-char	*filling_base(unsigned num_save, int base, char *result, int count)
+char	*filling_base(unsigned long long num_save, int base, char *result, int count)
 {
 	while (num_save != 0)
 	{
 		/*cifra*/
 		if ((num_save % base) < 10)
+		{
 			result[count - 1] = (num_save % base) + 48;
+		}
 		/*bukva*/
 		else
+		{
 			result[count - 1] = (num_save % base) + 55;
+		}
 		num_save /= base;
 		count--;
 	}
 	return (result);
 }
 
-char		*ft_base(unsigned num, int base)
+char		*ft_base(unsigned long long  num, int base)
 {
 	char			*result;
-	unsigned		num_save;
-	int			count;
+	unsigned long long	num_save;
+	int				count;
 
 	result = 0;
 	count = 0;

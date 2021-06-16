@@ -6,11 +6,11 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 17:42:32 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/20 16:09:13 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:19:45 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 char	*ft_strdup(const char *s)
 {

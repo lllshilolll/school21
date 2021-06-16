@@ -6,11 +6,11 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:27:36 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/18 16:27:59 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:18:30 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_isdigit(int c)
 {

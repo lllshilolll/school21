@@ -6,11 +6,11 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:47:12 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/22 16:22:34 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:19:01 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_is_minus(int n)
 {

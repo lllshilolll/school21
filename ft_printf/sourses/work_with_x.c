@@ -31,7 +31,7 @@ int	work_part_x(char *x, t_flags flags)
 	return (count);
 }
 
-int	work_x(unsigned ui, int lower, t_flags flags)
+int	work_x(unsigned int ui, int lower, t_flags flags)
 {
 	char	*x;
 	int	count;
@@ -46,11 +46,11 @@ int	work_x(unsigned ui, int lower, t_flags flags)
 		return (count);
 	}
 	/*v 16-i vid*/
-	x = ft_ull_base(ui, 16);
+	x = ft_base(ui, 16);
 	/*esli eto 'x' - sdelat' vse strochnimi*/
 	if (lower == 1)
 		x = ft_str_tolower(x);
-	count += ft_put_part_x(x, flags);
+	count += work_part_x(x, flags);
 	free(x);
 	return (count);
 }

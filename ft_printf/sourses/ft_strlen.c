@@ -6,11 +6,11 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 20:06:13 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/19 14:24:28 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:20:13 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 size_t	ft_strlen(const char *s)
 {

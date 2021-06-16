@@ -6,11 +6,11 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 16:59:41 by gbethani          #+#    #+#             */
-/*   Updated: 2021/04/22 17:14:43 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:19:19 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void ft_putchar_fd(char c, int fd)
 {

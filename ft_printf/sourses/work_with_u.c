@@ -47,7 +47,7 @@ int	work_u(unsigned int u, t_flags flags)
 	}
 	/*chislo v massiv*/
 	u_int = ft_u_itoa(u);
-	count += ft_put_part_uint(u_int, flags);
+	count += ft_part_u(u_int, flags);
 	free(u_int);
 	return (count);
 }

@@ -12,8 +12,7 @@ typedef struct s_flags
 	int	zero;
 	int	precision;
 	int	star;
-}t_flags;
-
+}				t_flags;
 int		ft_printf(const char *apFormat, ...);
 int		work_with_apFormat(const char *str, va_list aps);
 t_flags		clean_flags();
@@ -30,9 +29,9 @@ int		work_width(int width, int minus, int is_zero);
 int		work_with_str(char *str, t_flags flags);
 int		ft_write_str(char *str, t_flags flags);
 int		ft_putstr(char *str, int size);
-int		work_with_point(unsigned long ull, t_flags flags);
-char		*ft_base(unsigned num, int base);
-char		*filling_base(unsigned num_save, int base, char *rtn, int count);
+int		work_with_point(unsigned long long ull, t_flags flags);
+char		*ft_base(unsigned long long num, int base);
+char		*filling_base(unsigned long long num_save, int base, char *rtn, int count);
 char		*ft_str_tolower(char *str);
 int		ft_write_point(char *point, t_flags flags);
 int		work_with_int(int i, t_flags flags);
@@ -46,7 +45,7 @@ char		*ft_write_arr(char *result, long nbr, int len, int isneg);
 
 int	ft_part_u(char *u_int, t_flags flags);
 int	ft_in_part_u(char *u_int, t_flags flags);
-int	work_x(unsigned ui, int lower, t_flags flags);
+int	work_x(unsigned int ui, int lower, t_flags flags);
 int	work_part_x(char *x, t_flags flags);
 int	ft_write_x(char *x, t_flags flags);
 int	work_with_percent(t_flags flags);
