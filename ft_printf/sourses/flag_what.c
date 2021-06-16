@@ -1,26 +1,4 @@
 #include "../include/ft_printf.h"
-/*tochnost' - zapisat' kol-vo znakov posle '.'*/
-int	ft_flag_dot(const char *save, int start, t_flags *flags, va_list aps)
-{
-	int i;
-	/*index = '.'*/
-	i = start;
-	i++;
-	/*esli '*'- zapisat' argument v dot*/
-	if (save[i] == '*')
-	{
-		flags->dot = va_arg(aps, int);
-		i++;
-	}
-	else
-	{
-		/*poka eto cifra-zapisat' znaki*/
-		flags->dot = 0;
-		while (ft_isdigit(save[i]))
-			flags->dot = (flags->dot * 10) + (save[i++] - '0');
-	}
-	return (i);
-}
 
 /*esli '-' and '0' - flags.zero = 0*/
 t_flags	ft_flag_minus(t_flags flags)
@@ -52,4 +30,27 @@ t_flags	ft_flag_digit(char c, t_flags flags)
 		flags.width = 0;
 	flags.width = (flags.width * 10) + (c - '0');
 	return (flags);
+}
+
+/*tochnost' - zapisat' kol-vo znakov posle '.'*/
+int	ft_flag_precision(const char *str, int start, t_flags *flags, va_list aps)
+{
+	int index;
+	/*index = '.'*/
+	index = start;
+	index++;
+	/*esli '*'- zapisat' argument v precision*/
+	if (str[index] == '*')
+	{
+		flags->precision = va_arg(aps, int);
+		index++;
+	}
+	else
+	{
+		/*poka eto cifra-zapisat' znaki*/
+		flags->precision = 0;
+		while (ft_isdigit(str[index]))
+			flags->precision = (flags->precision * 10) + (str[index++] - '0');
+	}
+	return (index);
 }

@@ -1,35 +1,31 @@
 #include "../include/ft_printf.h"
-int	ft_estim(long n)
+int	ft_size(long n)
 {
-	size_t	estim;
-	//int	isneg;
+	size_t	size;
 	/*flafi*/
-	estim = 0;
-	//isneg = 0;
-	/*esli unsi < 0*/
+	size = 0;
 	if (n < 0)
 	{
-		estim++;
-	//	isneg++;
+		size++;
 		n = (-1) * n;
 	}
 	/*schitaem kol-vo cifr*/
 	while (n >= 1)
 	{
-		estim++;
+		size++;
 		n /= 10;
 	}
-	return (estim);
+	return (size);
 }
 
-char	*ft_gen(char *rtn, long nbr, int len, int isneg)
+char	*ft_write_arr(char *result, long nbr, int len, int isneg)
 {
 	/*esli chislo !=0 - malloc na kol-vo znakov + 1*/
 	if (nbr != 0)
-		rtn = malloc(sizeof(char) * (len + 1));
+		result = malloc(sizeof(char) * (len + 1));
 	else
-		return (rtn = ft_strdup("0"));
-	if (!rtn)
+		return (result = ft_strdup("0"));
+	if (!result)
 		return (0);
 	isneg = 0;
 	/*unsi < 0*/
@@ -38,35 +34,35 @@ char	*ft_gen(char *rtn, long nbr, int len, int isneg)
 		isneg++;
 		nbr = (-1) * nbr;
 	}
-	rtn[len] = '\0';
+	result[len] = '\0';
 	/*zapis' znakov v massiv s konca*/
 	while (--len)
 	{
-		rtn[len] = (nbr % 10) + '0';
+		result[len] = (nbr % 10) + '0';
 		nbr /= 10;
 	}
 	/*esli < 0 - zapis '-'*/
 	if (isneg == 1)
-		rtn[0] = '-';
+		result[0] = '-';
 	else
-		rtn[0] = (nbr % 10) + '0';
-	return (rtn);
+		result[0] = (nbr % 10) + '0';
+	return (result);
 }
 
 char	*ft_u_itoa(unsigned int n)
 {
 	int	len;
-	char	*rtn;
+	char	*result;
 	long	nbr;
 	int	isneg;
 
 	nbr = n;
 	/*kol-vo znakov*/
-	len = ft_estim(nbr);
-	rtn = 0;
+	len = ft_size(nbr);
+	result = 0;
 	isneg = 0;
 	/*chislo v massiv*/
-	if (!(rtn = ft_gen(rtn, nbr, len, isneg)))
+	if (!(result = ft_write_arr(result, nbr, len, isneg)))
 		return (0);
-	return (rtn);
+	return (result);
 }

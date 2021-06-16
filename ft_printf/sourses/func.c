@@ -6,14 +6,14 @@ int	ft_putchar(int c)
 	return (1);
 }
 
-int	ft_treat_width(int width, int minus, int has_zero)
+int	work_width(int width, int minus, int is_zero)
 {
 	int count;
 
 	count = 0;
 	while (width - minus > 0)
 	{
-		if (has_zero)
+		if (is_zero)
 			ft_putchar('0');
 		else
 			ft_putchar(' ');
@@ -23,12 +23,12 @@ int	ft_treat_width(int width, int minus, int has_zero)
 	return (count);
 }
 
-int	ft_putstrprec(char *str, int prec)
+int	ft_putstr(char *str, int size)
 {
 	int count;
 
 	count = 0;
-	while (str[count] && count < prec)
+	while (str[count] && count < size)
 		ft_putchar(str[count++]);
 	return (count);
 }
