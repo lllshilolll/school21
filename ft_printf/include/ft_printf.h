@@ -29,7 +29,7 @@ int		work_width(int width, int minus, int is_zero);
 int		work_with_str(char *str, t_flags flags);
 int		ft_write_str(char *str, t_flags flags);
 int		ft_putstr(char *str, int size);
-int		work_with_point(unsigned long long ull, t_flags flags);
+int		work_with_point(unsigned long long p, t_flags flags);
 char		*ft_base(unsigned long long num, int base);
 char		*filling_base(unsigned long long num_save, int base, char *rtn, int count);
 char		*ft_str_tolower(char *str);

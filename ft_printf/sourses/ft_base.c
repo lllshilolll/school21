@@ -13,12 +13,10 @@ char	*filling_base(unsigned long long num_save, int base, char *result, int coun
 {
 	while (num_save != 0)
 	{
-		/*cifra*/
 		if ((num_save % base) < 10)
 		{
 			result[count - 1] = (num_save % base) + 48;
 		}
-		/*bukva*/
 		else
 		{
 			result[count - 1] = (num_save % base) + 55;
@@ -40,13 +38,13 @@ char		*ft_base(unsigned long long  num, int base)
 	num_save = num;
 	if (num == 0)
 		return (ft_strdup("0"));
-	/*kol-vo simvolov*/
 	while (num != 0)
 	{
 		num /= base;
 		count++;
 	}
-	if (!(result = malloc(sizeof(char) * (count + 1))))
+	result = malloc(sizeof(char) * (count + 1));
+	if (!(result))
 		return (0);
 	result[count] = '\0';
 	result = filling_base(num_save, base, result, count);
