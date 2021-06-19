@@ -6,22 +6,16 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:47:12 by gbethani          #+#    #+#             */
-/*   Updated: 2021/06/16 20:19:01 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/19 19:56:45 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
+#include <stdio.h>
 
 int	ft_is_minus(int n)
 {
 	if (n < 0)
-		return (1);
-	return (0);
-}
-
-int	ft_min_int(int n)
-{
-	if (n == -2147483648)
 		return (1);
 	return (0);
 }
@@ -38,27 +32,22 @@ int	ft_pow_10(int numb)
 
 char	*write_nb(char *arr, int numb, int n)
 {
-	int	i;
-	int	tmp;
-
+	int			i;
+	int			tmp;
+	long int 	count;
+	
+	count = (long int) n;
 	i = -1;
 	if (ft_is_minus(n) == 1)
 	{
-		arr[++i] = '-';
 		numb--;
-		if (ft_min_int(n) == 1)
-		{
-			arr[++i] = '2';
-			numb--;
-			n = (n + 2000000000);
-		}
-		n = n * (-1);
+		count = count * (-1);
 	}
 	while (numb > 0)
 	{
-		tmp = n / ft_pow_10(numb - 1);
+		tmp = count / ft_pow_10(numb - 1);
 		arr[++i] = tmp + '0';
-		n = n - tmp * (ft_pow_10(numb - 1));
+		count = count - tmp * (ft_pow_10(numb - 1));
 		numb--;
 	}
 	arr[++i] = '\0';
@@ -67,27 +56,25 @@ char	*write_nb(char *arr, int numb, int n)
 
 char	*ft_itoa(int n)
 {
-	char	*arr;
-	int		numb;
-	int		count;
+	char			*arr;
+	int				numb;
+	long int		count;
 
-	count = n;
+	count = (long int)n;
 	numb = 1;
-	if (ft_is_minus(n) == 1 && ft_min_int(n) == 0)
+	if (ft_is_minus(n) == 1)
 	{
 		numb++;
-		n = n * (-1);
+		count = count * (-1);
 	}
-	while (n > 9)
+	while (count > 9)
 	{
-		n = n / 10;
+		count = count / 10;
 		numb++;
 	}
-	if (ft_min_int(n) == 1)
-		numb = 11;
 	arr = (char *)malloc(sizeof(char) * (numb + 1));
 	if (!arr)
 		return (NULL);
-	arr = write_nb(arr, numb, count);
+	arr = write_nb(arr, numb, n);
 	return (arr);
 }
