@@ -23,7 +23,7 @@ char	*filling_base(unsigned long long num_save, int base, char *result, int coun
 		{
 			result[count - 1] = (num_save % base) + 55;
 		}
-		num_save /= base;
+		num_save /= base;//LL
 		count--;
 	}
 	return (result);
@@ -43,7 +43,7 @@ char		*ft_base(unsigned long long  num, int base)
 	/*kol-vo simvolov*/
 	while (num != 0)
 	{
-		num /= base;
+		num /= base;//LL
 		count++;
 	}
 	if (!(result = malloc(sizeof(char) * (count + 1))))

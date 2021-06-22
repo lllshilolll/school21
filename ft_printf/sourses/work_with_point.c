@@ -38,13 +38,19 @@ int	work_with_point(unsigned long long p, t_flags flags)
 		printf("if\n");
 		return (count += work_width(flags.width, 0, 1));
 	}
+
 	/*massiv chisla v 16-forme*/
+
 	point = ft_base(p, 16);
 	printf("ft_base: %s\n", point);
+
 	/*zaglavnie v strochnie*/
+
 	point = ft_str_tolower(point);
 	printf("lower: %s\n", point);
+
 	/*njchnost' < len*/
+
 	len = ft_strlen(point);
 	if ((size_t)flags.precision < len)
 		flags.precision = len;
