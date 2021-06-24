@@ -7,17 +7,12 @@ int	ft_write_point(char *point, t_flags flags)
 
 	len = ft_strlen(point);
 	count = 0;
-	/*pechat' - pervie 2 simvola*/
 	count += ft_putstr("0x", 2);
-	/*tochnost'*/
 	if (flags.precision >= 0)
 	{
-		/*zapisivaem '0' do tochnosti*/
 		count += work_width(flags.precision, len, 1);
-		/*ostatok pechatat'*/
 		count += ft_putstr(point, flags.precision);
 	}
-	/*prosto pechat' pointer*/
 	else
 		count += ft_putstr(point, len);
 	return (count);
@@ -30,14 +25,12 @@ int	work_with_point(unsigned long long p, t_flags flags)
 	size_t			len;
 
 	count = 0;
-	/*esli 'null'*/
 	if (p == 0 && flags.precision == 0)
 	{
-		/*print 0x + dobit' shirinu '0'*/
 		count += ft_putstr("0x", 2);
-		printf("if\n");
 		return (count += work_width(flags.width, 0, 1));
 	}
+<<<<<<< HEAD
 
 	/*massiv chisla v 16-forme*/
 
@@ -51,6 +44,10 @@ int	work_with_point(unsigned long long p, t_flags flags)
 
 	/*njchnost' < len*/
 
+=======
+	point = ft_base(p, 16);
+	point = ft_str_tolower(point);
+>>>>>>> 7d4867cf944203c8f25f0cca5f002770e5e0662d
 	len = ft_strlen(point);
 	if ((size_t)flags.precision < len)
 		flags.precision = len;
