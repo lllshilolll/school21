@@ -9,11 +9,12 @@ int main()
     int CHAR_MIN = -128;
     int CHAR_MAX = -127;
     int a = 123;
-    
-    printf("равно: %d\n",printf("*%0*.0d* *%021.10d*\n", -21, INT_MAX, INT_MIN));
-    printf("равно: %d\n",ft_printf("*%0*.0d* *%0*.10d*\n", -21, INT_MAX, 21, INT_MIN));
+    printf("равно: %d\n",printf("%020.2d\n", -535));
+    printf("равно: %d\n",ft_printf("%020.2d\n", -535));
+    printf("равно: %d\n",printf("*%0*.0d* *%021.10d*\n", -21, INT_MAX, -55555555));
+    printf("равно: %d\n",ft_printf("*%0*.0d* *%0*.10d*\n", -21, INT_MAX, 21, -55555555));
 
-    printf("равно: %d\n",printf("*%-0*.20d* *%-0*.10d*\n", -21, CHAR_MAX, 21, CHAR_MIN));
+    printf("равно: %d\n",printf("*%--21.20d* *%-0*.10d*\n",CHAR_MAX, 21, CHAR_MIN));
     printf("равно: %d\n",ft_printf("*%-0*.20d* *%-0*.10d*\n", -21, CHAR_MAX, 21, CHAR_MIN));
    /* printf("равно: %d\n",printf("%021.10d", -2147483648));
     printf("равно: %d\n",ft_printf("%021.10d", -2147483648));*/

@@ -42,7 +42,7 @@ int ft_int_minus(long int li, t_flags flags, int flag)
     if (flags.width > kol && flags.width > flags.precision)
     {
         if (flags.precision > kol)
-            count += work_width(flags.width, flags.precision, 0);
+            count += work_width(flags.width, flags.precision + flag, 0);
         else
             count += work_width(flags.width, kol, 0);
     }
@@ -58,12 +58,12 @@ int ft_int_ne_minus(long int li, t_flags flags, int flag)
     kol = lennum(li);
     count = 0;
 
-    if (flags.width > kol && flags.width > flags.precision && flags.precision >= 0)
+    if (flags.width > kol && flags.precision < flags.width && flags.precision >= 0)
     {
         if (li < 0)
             flag = 1;
         if (flags.precision > kol)
-            count += work_width(flags.width, flags.precision, 0);
+            count += work_width(flags.width - flag, flags.precision , 0);
         else
             count += work_width(flags.width, kol, 0);
     }
@@ -75,7 +75,8 @@ int ft_int_ne_minus(long int li, t_flags flags, int flag)
             li = li * (-1);
             flag = 1;
         }
-        count += work_width(flags.precision + flag, kol, 1);
+        if (flags.precision > kol)
+            count += work_width(flags.precision + flag, kol, 1);
     }
     if (flags.width > kol && flags.precision == -1)
         count += work_width(flags.width, kol, flags.zero);
