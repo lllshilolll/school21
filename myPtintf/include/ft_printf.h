@@ -21,7 +21,7 @@ int		ft_is_type(int c);
 int		ft_is_flags(int c);
 int		ft_flag_precision(const char *save, int start, t_flags *flags, va_list aps);
 t_flags		ft_flag_minus(t_flags flags);
-t_flags		ft_flag_width(va_list aps, t_flags flags);
+t_flags		ft_flag_width(va_list ašs, t_flags flags);
 t_flags		ft_flag_digit(char c, t_flags flags);
 int		what_type(int c, t_flags flags, va_list aps);
 int        work_width(int width, int minus, int is_zero);

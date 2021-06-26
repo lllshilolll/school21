@@ -22,5 +22,5 @@ size_t	ft_strlen(const char *s);
 int		ft_isdigit (int c);
 int		ft_tolower(int c);
 char	*ft_strdup(const char *s);
-char *ft_itoa(long int n);
+char *ft_itoa( long int n);
 #endif

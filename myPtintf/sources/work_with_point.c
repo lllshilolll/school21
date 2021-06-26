@@ -3,7 +3,8 @@
 int ft_point_minus(t_flags flags, char *  point)
 {
     int count;
-    
+    size_t len;
+
     count = 0;
     len = ft_strlen(point);
     count += ft_putstr("0x", 2);
@@ -18,7 +19,8 @@ int ft_point_minus(t_flags flags, char *  point)
 int ft_point_ne_minus(t_flags flags, char * point)
 {
     int count;
-    
+    size_t len;
+
     count = 0;
     len = ft_strlen(point);
     if ((size_t)flags.width > len && flags.zero == 0)
@@ -52,9 +54,9 @@ int	work_with_point(void *p, t_flags flags)
     if ((size_t)flags.precision < len)
         flags.precision = len;
     if (flags.minus == 1)
-        count += ft_point_minus(flags, point)
+        count += ft_point_minus(flags, point);
     if (flags.minus == 0)
-        count += ft_point_ne_minus(flags, point)
+        count += ft_point_ne_minus(flags, point);
     free(point);
     return (count);
 }
