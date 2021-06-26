@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 #include <stdio.h>
-int lennum(long long int i)
+int lennum(long int i)
 {
     int count;
     
@@ -19,7 +19,7 @@ int lennum(long long int i)
     return (count);
 }
 
-int ft_int_minus(long long int li, t_flags flags, int flag)
+int ft_int_minus(long int li, t_flags flags, int flag)
 {
     int count;
     int kol;
@@ -49,7 +49,7 @@ int ft_int_minus(long long int li, t_flags flags, int flag)
     free(arr);
     return (count);
 }
-int ft_int_ne_minus(long long int li, t_flags flags, int flag)
+int ft_int_ne_minus(long int li, t_flags flags, int flag)
 {
     int count;
     int kol;
@@ -90,7 +90,7 @@ int work_with_int(int i, t_flags flags)
 {
     int count;
     int kol;
-    long long int li;
+    long int li;
     int flag;
     
     li = i;
