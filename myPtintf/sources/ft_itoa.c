@@ -30,28 +30,25 @@ int	ft_pow_10(int numb)
 	return (p);
 }
 
-char	*write_nb(char *arr, int numb, long long int n)
+char	*write_nb(char *arr, int numb, long int n)
 {
 	int			i;
 	int			tmp;
-	long long int 	count;
+	long int 	count;
 	
-	count =  n;
-	i = -1;
+	count = (long int) n;
+	i = 0;
 	if (ft_is_minus(n) == 1)
-	{
-		numb--;
-		arr[++i] = '-';
 		count = count * (-1);
-	}
 	while (numb > 0)
 	{
 		tmp = count / ft_pow_10(numb - 1);
-		arr[++i] = tmp + '0';
+		arr[i] = tmp + '0';
 		count = count - tmp * (ft_pow_10(numb - 1));
 		numb--;
+        i++;
 	}
-	arr[++i] = '\0';
+	arr[i] = '\0';
 	return (arr);
 }
 
@@ -59,15 +56,12 @@ char	*ft_itoa(long int n)
 {
 	char			*arr;
 	int				numb;
-	long long int		count;
+	long int		count;
 
-	count = n;
+	count = (long int)n;
 	numb = 1;
 	if (ft_is_minus(n) == 1)
-	{
-		numb++;
 		count = count * (-1);
-	}
 	while (count > 9)
 	{
 		count = count / 10;

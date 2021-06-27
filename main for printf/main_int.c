@@ -9,13 +9,76 @@ int main()
     int CHAR_MIN = -128;
     int CHAR_MAX = -127;
     int a = 123;
-    printf("равно: %d\n",printf("%020.2d\n", -535));
+    int UINT_MAX = 4294967295;//10 -1 2
+    
+    
+     printf("равно: %d\n",printf(" %.d ", 0));
+    printf("равно: %d\n",printf(" %.d ", 0));
+
+     printf("равно: %d\n",printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1));
+    printf("равно: %d\n",printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1));
+
+     printf("равно: %d\n",printf("%09.0d", UINT_MAX + 1));
+    printf("равно: %d\n",printf("%09.0d", UINT_MAX + 1));
+
+    
+    /*
+    printf("равно: %d\n",printf("%-0*.4d %-0*.4d", -21, CHAR_MAX, 21, CHAR_MIN));
+    printf("равно: %d\n",ft_printf("%-0*.4d %-0*.4d", -21, CHAR_MAX, 21, CHAR_MIN));
+
+    printf("равно: %d\n",printf("%9.2d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%9.2d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%10.2d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%10.2d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%11.2d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%11.2d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%-9.2d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%-9.2d\n", UINT_MAX));*/
+
+    /*printf("равно: %d\n",printf("%10.0d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%10.0d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%10.1d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%10.1d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%10.10d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%10.10d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%11.0d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%11.0d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%11.1d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%11.1d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%11.10d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%11.10d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%9.2d\n", UINT_MAX));
+    printf("!равно: %d\n",ft_printf("%9.2d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%9.10d\n", UINT_MAX));
+    printf("равно: %d\n",ft_printf("%9.10d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%10.2d\n", UINT_MAX));
+    printf("!равно: %d\n",ft_printf("%10.2d\n", UINT_MAX));
+
+    printf("равно: %d\n",printf("%11.2d\n", UINT_MAX));
+    printf("!равно: %d\n",ft_printf("%11.2d\n", UINT_MAX));*/
+    
+    
+    
+    
+
+    /*printf("равно: %d\n",printf("%020.2d\n", -535));
     printf("равно: %d\n",ft_printf("%020.2d\n", -535));
     printf("равно: %d\n",printf("*%0*.0d* *%021.10d*\n", -21, INT_MAX, -55555555));
     printf("равно: %d\n",ft_printf("*%0*.0d* *%0*.10d*\n", -21, INT_MAX, 21, -55555555));
 
     printf("равно: %d\n",printf("*%--21.20d* *%-0*.10d*\n",CHAR_MAX, 21, CHAR_MIN));
-    printf("равно: %d\n",ft_printf("*%-0*.20d* *%-0*.10d*\n", -21, CHAR_MAX, 21, CHAR_MIN));
+    printf("равно: %d\n",ft_printf("*%-0*.20d* *%-0*.10d*\n", -21, CHAR_MAX, 21, CHAR_MIN));*/
    /* printf("равно: %d\n",printf("%021.10d", -2147483648));
     printf("равно: %d\n",ft_printf("%021.10d", -2147483648));*/
 
@@ -46,7 +109,8 @@ int main()
     printf("равно: %d\n",ft_printf("%-3.2d\n", 10));*/
 
 /*
-            
+    char * arr = ft_itoa(-123);
+    printf("%s\n", arr);
     printf("\n\n");
     printf("SHIRINA\n");
     
@@ -129,8 +193,11 @@ int main()
     printf("Moe\n");
     printf("равно: %d\n", ft_printf("%10.20d\n", -1234));
     printf("равно: %d\n", ft_printf("%20.10d\n", -1234));
-    printf("равно: %d\n", ft_printf("%20.10d\n", 1234));*/
+    printf("равно: %d\n", ft_printf("%20.10d\n", 1234));
 
+    printf("равно: %d\n", printf("%20.10d\n", -1234));//error
+    printf("равно: %d\n", ft_printf("%20.10d\n", -1234));
+*/
 
     
     

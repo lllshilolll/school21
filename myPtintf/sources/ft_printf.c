@@ -73,6 +73,7 @@ int	ft_printf(const char *apFormat, ...)
 	va_list		aps;
 	const char	*str;
 	int		count;
+
 	str = ft_strdup(apFormat);
 	count = 0;
 	va_start(aps, apFormat);
