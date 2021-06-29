@@ -1,20 +1,20 @@
 #include "../include/ft_printf.h"
 char	*ft_str_tolower(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
-    {
-        str[i] = ft_tolower(str[i]);
-        i++;
-    }
+	{
+		str[i] = ft_tolower(str[i]);
+		i++;
+	}
 	return (str);
 }
 
 char	*filling_base(unsigned long long num_save, char *result, int count)
 {
-    count -= 1;
+	count -= 1;
 	while (num_save != 0)
 	{
 		if ((num_save % 16) < 10)
@@ -27,11 +27,11 @@ char	*filling_base(unsigned long long num_save, char *result, int count)
 	return (result);
 }
 
-char		*ft_base(unsigned long long  num)
+char	*ft_base(unsigned long long num)
 {
-	char			*result;
+	char				*result;
 	unsigned long long	num_save;
-	int				count;
+	int					count;
 
 	result = 0;
 	count = 0;

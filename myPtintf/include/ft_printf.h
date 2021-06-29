@@ -30,12 +30,14 @@ int work_with_char(char c, t_flags flags);
 int		work_with_str(char *str, t_flags flags);
 int		work_with_point(void  *p, t_flags flags);
 int		work_with_int(int i, t_flags flags);
-int		work_u(unsigned int unsi, t_flags flags);
-int	work_x(unsigned int ui, int lower, t_flags flags);
+int		work_with_u(unsigned int unsi, t_flags flags);
+int	work_with_x(unsigned int ui, int lower, t_flags flags);
 int	work_with_percent(t_flags flags);
 
 char        *ft_base(unsigned long long num);
 int    ft_putchar(int c);
 int    ft_putstr(char *str, int size);
 char        *ft_str_tolower(char *str);
+char    *ft_u_itoa(unsigned int nbr);
+
 #endif

@@ -29,11 +29,11 @@ int	what_type(int c, t_flags flags, va_list aps)
 	else if (c == 'd' || c == 'i')
 		count = work_with_int(va_arg(aps, int), flags);
 	else if (c == 'u')
-		count += work_u(va_arg(aps, unsigned int), flags);
+		count += work_with_u(va_arg(aps, unsigned int), flags);
 	else if (c == 'x')
-		count += work_x(va_arg(aps, unsigned int), 1, flags);
+		count += work_with_x(va_arg(aps, unsigned int), 1, flags);
 	else if (c == 'X')
-		count += work_x(va_arg(aps, unsigned int), 0, flags);
+		count += work_with_x(va_arg(aps, unsigned int), 0, flags);
 	else if (c == '%')
 		count += work_with_percent(flags);
 	return (count);

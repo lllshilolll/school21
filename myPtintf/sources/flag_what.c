@@ -14,7 +14,7 @@ t_flags	ft_flag_width(va_list aps, t_flags flags)
 	if (flags.width < 0)
 	{
 		flags.minus = 1;
-        flags.zero = 0;
+		flags.zero = 0;
 		flags.width *= -1;
 	}
 	return (flags);

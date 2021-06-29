@@ -6,7 +6,7 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:47:12 by gbethani          #+#    #+#             */
-/*   Updated: 2021/06/19 19:56:45 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/06/29 22:45:26 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ char	*write_nb(char *arr, int numb, long int n)
 {
 	int			i;
 	int			tmp;
-	long int 	count;
-	
+	long int	count;
+
 	count = (long int) n;
 	i = 0;
 	if (ft_is_minus(n) == 1)
@@ -46,7 +46,7 @@ char	*write_nb(char *arr, int numb, long int n)
 		arr[i] = tmp + '0';
 		count = count - tmp * (ft_pow_10(numb - 1));
 		numb--;
-        i++;
+		i++;
 	}
 	arr[i] = '\0';
 	return (arr);

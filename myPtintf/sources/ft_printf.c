@@ -1,7 +1,6 @@
 #include "../include/ft_printf.h"
 
-/*inicializiruem flags*/
-t_flags	clean_flags()
+t_flags	clean_flags(void)
 {
 	t_flags	flags;
 
@@ -42,9 +41,9 @@ int	ft_flag_parse(const char *str, int i, t_flags *flags, va_list aps)
 
 int	work_with_apFormat(const char *str, va_list aps)
 {
-	int	i;
+	int		i;
 	t_flags	flags;
-	int	count;
+	int		count;
 
 	i = 0;
 	count = 0;
@@ -72,7 +71,7 @@ int	ft_printf(const char *apFormat, ...)
 {
 	va_list		aps;
 	const char	*str;
-	int		count;
+	int			count;
 
 	str = ft_strdup(apFormat);
 	count = 0;
