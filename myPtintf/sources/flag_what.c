@@ -45,5 +45,7 @@ int	ft_flag_precision(const char *str, int start, t_flags *flags, va_list aps)
 		while (ft_isdigit(str[index]))
 			flags->precision = (flags->precision * 10) + (str[index++] - '0');
 	}
+    if (flags->precision < -1)
+        flags->precision = -1;
 	return (index);
 }

@@ -1,9 +1,17 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
 # include <stdarg.h>
+# include <ctype.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
 
+size_t    ft_strlen(const char *s);
+int        ft_isdigit (int c);
+int        ft_tolower(int c);
+char    *ft_strdup(const char *s);
+char *ft_itoa( long int n);
 typedef struct s_flags
 {
 	int	type;

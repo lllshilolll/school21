@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 int	ft_is_minus(int n)
 {
