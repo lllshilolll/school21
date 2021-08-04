@@ -13,38 +13,46 @@ t_stack *init(int head)
 t_stack *add_elem(t_stack *stack, int val)
 {
 	t_stack *temp;
-	t_stack *p;
 	temp = (t_stack *)malloc(sizeof(stack));
 	if (!(temp))
 		return(NULL);
-	p = stack->next;
-	stack->next = temp;
-	temp->value = val;
-	temp->next = p;
-	temp->prev = stack;
-	if (p != NULL)
+	temp->value = val;//записываем значение 
+	temp->next = NULL;//ссылка на нуль так как это конец 
+	if(stack == NULL)
 	{
-		p->prev = temp;
+		stack = temp;
 	}
-	return(temp);
+	else
+	{
+		while (stack->next != NULL)
+		{
+			stack = stack->next;
+		}
+		stack->next = temp;
+		stack->next->prev = stack;
+	}
+	return(stack);
 }
 void listprint(t_stack *stack)
 {
-  t_stack *p;
-  p = stack;
-  while (p->next != NULL)
-    p = p->next;  // переход к концу списка
-  do {
-    printf("%d ", p->value); // вывод значения элемента p
-    p = p->prev; // переход к предыдущему узлу
-  } while (p != NULL); // условие окончания обхода
+	t_stack *p;
+	p = stack;
+	while (p->next != NULL)
+	{
+		p = p->next;
+	}
+	while (p != NULL)
+	{
+		printf("%d ", p->value); // вывод значения элемента p
+		p = p->prev; // переход к предыдущему узлу
+	}
+	return;
 }
 int main()
 {
 	t_stack *stack;
 	stack = init(0);
 	stack = add_elem(stack, 1);
-
 	stack = add_elem(stack, 2);
 	stack = add_elem(stack, 3);
 	listprint(stack);
