@@ -1,5 +1,17 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_char.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/02 17:22:46 by gbethani          #+#    #+#             */
+/*   Updated: 2021/07/02 17:22:49 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+//#include "ft_printf.h"
+#include "../include/ft_printf.h"
 int	work_with_char(char c, t_flags flags)
 {
 	int	count;

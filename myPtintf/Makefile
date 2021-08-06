@@ -10,7 +10,7 @@ HEADER = include/ft_printf.h
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./include
 
 OBJS = ${SRCS:.c=.o}

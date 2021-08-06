@@ -1,5 +1,17 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_x.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/02 17:24:23 by gbethani          #+#    #+#             */
+/*   Updated: 2021/07/02 17:24:25 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+//#include "ft_printf.h"
+#include "../include/ft_printf.h"
 int	ft_x_minus(t_flags flags, char *arr, int len)
 {
 	int	count;

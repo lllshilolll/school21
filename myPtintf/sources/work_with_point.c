@@ -1,5 +1,17 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_point.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/02 17:23:36 by gbethani          #+#    #+#             */
+/*   Updated: 2021/07/02 19:31:09 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+//#include "ft_printf.h"
+#include "../include/ft_printf.h"
 int	ft_point_minus(t_flags flags, char *point)
 {
 	int		count;
@@ -34,6 +46,19 @@ int	ft_point_ne_minus(t_flags flags, char *point)
 	return (count);
 }
 
+int	ft_point_zero(t_flags flags)
+{
+	int	count;
+
+	count = 0;
+	if (flags.minus == 1)
+		count += ft_putstr("0x", 2);
+	count += work_width(flags.width, 2, flags.zero);
+	if (flags.minus == 0)
+		count += ft_putstr("0x", 2);
+	return (count);
+}
+
 int	work_with_point(void *p, t_flags flags)
 {
 	int					count;
@@ -45,7 +70,7 @@ int	work_with_point(void *p, t_flags flags)
 	ull = (unsigned long long)p;
 	if (p == 0 && flags.precision == 0)
 	{
-		count += ft_putstr("0x", 2);
+		count += ft_point_zero(flags);
 		return (count);
 	}
 	point = ft_base(ull);

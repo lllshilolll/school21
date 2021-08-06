@@ -6,12 +6,12 @@
 /*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:47:12 by gbethani          #+#    #+#             */
-/*   Updated: 2021/06/29 22:45:26 by gbethani         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:15:59 by gbethani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
+//#include "ft_printf.h"
+#include "../include/ft_printf.h"
 int	ft_is_minus(int n)
 {
 	if (n < 0)

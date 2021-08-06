@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
+//#include "ft_printf.h"
+#include "../include/ft_printf.h"
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')

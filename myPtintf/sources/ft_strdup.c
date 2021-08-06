@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "ft_printf.h"
 #include "../include/ft_printf.h"
-
 char	*ft_strdup(const char *s)
 {
 	int		i;

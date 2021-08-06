@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flag_what.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/02 17:16:15 by gbethani          #+#    #+#             */
+/*   Updated: 2021/07/02 19:32:00 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//#include "ft_printf.h"
 #include "../include/ft_printf.h"
 
 t_flags	ft_flag_minus(t_flags flags)
@@ -45,7 +58,7 @@ int	ft_flag_precision(const char *str, int start, t_flags *flags, va_list aps)
 		while (ft_isdigit(str[index]))
 			flags->precision = (flags->precision * 10) + (str[index++] - '0');
 	}
-    if (flags->precision < -1)
-        flags->precision = -1;
+	if (flags->precision < -1)
+		flags->precision = -1;
 	return (index);
 }

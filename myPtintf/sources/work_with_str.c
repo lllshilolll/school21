@@ -1,5 +1,17 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_str.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbethani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/02 17:23:55 by gbethani          #+#    #+#             */
+/*   Updated: 2021/07/02 17:23:57 by gbethani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+//#include "ft_printf.h"
+#include "../include/ft_printf.h"
 int	ft_str_prec(t_flags flags, char *str)
 {
 	int	count;
