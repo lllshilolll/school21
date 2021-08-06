@@ -21,6 +21,7 @@ void	pb(t_wksp *ds)
 		if (ds->size_a == 0)
 			ds->a_st = NULL;
 	}
+	ft_putstr_fd("pb\n", 1);
 }
 
 void	pb_p(t_wksp *ds)
@@ -54,6 +55,7 @@ void	pa(t_wksp *ds)
 		if (ds->size_b == 0)
 			ds->b_st = NULL;
 	}
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pa_p(t_wksp *ds)

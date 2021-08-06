@@ -16,6 +16,7 @@ void	sa(t_wksp *ds)
 		ds->a_st->flag = ds->a_st->next->flag;
 		ds->a_st->next->flag = temp_val;
 	}
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_wksp *ds)
@@ -34,10 +35,12 @@ void	sb(t_wksp *ds)
 		ds->b_st->flag = ds->b_st->next->flag;
 		ds->b_st->next->flag = temp_val;
 	}
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_wksp *ds)
 {
 	sa(ds);
 	sb(ds);
+	ft_putstr_fd("->ss\n", 1);
 }
